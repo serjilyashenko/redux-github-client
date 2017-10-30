@@ -1,0 +1,12 @@
+.app {
+  background: red;
+
+  &__element {
+    display: flex;
+    background: green;
+    border: 1px solid black;
+    border-radius: 5px;
+    max-width: 900px;
+    margin: auto;
+  }
+}
