@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UserPage from 'components/UserPage';
 
-const UserPageContainer = props => <UserPage userId={props.match.params.user}/>;
+const UserPageContainer = props => <UserPage userId={props.match.params.user} />;
 
 UserPageContainer.propTypes = {
   match: PropTypes.shape({
@@ -12,4 +12,4 @@ UserPageContainer.propTypes = {
   }).isRequired
 };
 
-export default UserPageContainer
+export default UserPageContainer;

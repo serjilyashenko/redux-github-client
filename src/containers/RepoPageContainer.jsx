@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RepoPage from 'components/RepoPage';
 
-const RepoPageContainer = props => <RepoPage repo={props.match.params}/>;
+const RepoPageContainer = props => <RepoPage repo={props.match.params} />;
 
 RepoPageContainer.propTypes = {
   match: PropTypes.shape({
@@ -13,4 +13,4 @@ RepoPageContainer.propTypes = {
   }).isRequired
 };
 
-export default RepoPageContainer
+export default RepoPageContainer;

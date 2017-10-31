@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router } from 'react-router-dom';
 import { mount } from 'enzyme';
 import App from './App';
 
@@ -16,9 +17,9 @@ const setup = propOverriders => {
 
 describe('components', () => {
   describe('App', () => {
-    it('should render container', () => {
+    it('should render Router', () => {
       const { wrapper } = setup();
-      expect(wrapper.find('.test-class_mod2')).toHaveLength(1);
+      expect(wrapper.find(Router)).toHaveLength(1);
     });
   });
 });

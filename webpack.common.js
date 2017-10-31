@@ -49,12 +49,16 @@ module.exports = {
                   module: false
                 }
               ]
-            ]
+            ],
+            "plugins": [
+              "react-hot-loader/babel",
+              "babel-plugin-transform-class-properties"
+            ],
           }
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
           'style-loader',
           {
@@ -66,6 +70,14 @@ module.exports = {
           'autoprefixer-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
       }
     ]
   }

@@ -1,15 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from 'components/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HeaderContainer from 'containers/HeaderContainer';
 import UserPageContainer from 'containers/UserPageContainer';
 import RepoPageContainer from 'containers/RepoPageContainer';
 
 const App = () => (
   <Router>
-    <div>
-      <Route path="/" component={Header} />
-      <Route exact path="/:user" component={UserPageContainer} />
-      <Route exact path="/:user/:repo" component={RepoPageContainer} />
+    <div className="container">
+      <Route path="/" component={HeaderContainer} />
+      <Switch>
+        <Route exact path="/:user" component={UserPageContainer} />
+        <Route exact path="/:user/:repo" component={RepoPageContainer} />
+        <Route component={() => <h2>404</h2>} />
+      </Switch>
     </div>
   </Router>
 );
