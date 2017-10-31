@@ -1,15 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
 import UserPage from 'components/UserPage';
+import {getUser} from 'redux/reducer';
+import {fetchUser} from 'redux/user/actions';
 
-const UserPageContainer = props => <UserPage userId={props.match.params.user} />;
+class UserPageContainer extends Component {
+  static propTypes = {
+    user: PropTypes.shape({}).isRequired,
+    login: PropTypes.string.isRequired,
+    dispatch: PropTypes.func.isRequired
+  };
 
-UserPageContainer.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      user: PropTypes.string
-    })
-  }).isRequired
-};
+  componentDidMount() {
+    const {login, dispatch} = this.props;
+    dispatch(fetchUser(login));
+  }
 
-export default UserPageContainer;
+  render() {
+    return <UserPage login={this.props.login} user={this.props.user}/>;
+  }
+}
+
+const mapStateIntoProps = (state, ownProps) => ({
+  login: ownProps.match.params.user,
+  user: getUser(state)
+});
+
+export default connect(mapStateIntoProps)(UserPageContainer);

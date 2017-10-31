@@ -5,8 +5,10 @@ import configureStore from 'redux/configureStore';
 
 const store = configureStore();
 
-export default (
+const Root = () => (
   <Provider store={store}>
     <App />
   </Provider>
 );
+
+export default Root;
