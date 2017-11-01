@@ -46,13 +46,7 @@ class Header extends Component {
     });
   };
 
-  handleKeyUp = e => {
-    if (e.keyCode === 13) {
-      this.handleOnSearch(e);
-    }
-  };
-
-  handleOnSearch = () => {
+  handleOnSubmit = () => {
     const { onSearch } = this.props;
     const url = this.getTargetUrl();
     onSearch(url);
@@ -66,22 +60,20 @@ class Header extends Component {
         <h1 className="text-center text-light">GitHub Client</h1>
         <div className="row">
           <div className="col-lg-6 offset-lg-3">
-            <div className="input-group">
+            <form className="input-group" onSubmit={this.handleOnSubmit}>
               <input
+                name="search"
                 type="text"
                 value={searchValue}
                 onChange={this.handleOnChange}
-                onKeyUp={this.handleKeyUp}
                 className="form-control"
                 placeholder="User/Repository name"
                 aria-label="user-repository"
               />
               <span className="input-group-btn">
-                <button className="btn btn-secondary" onClick={this.handleOnSearch}>
-                  Go
-                </button>
+                <input type="submit" value="Go" className="btn btn-secondary" />
               </span>
-            </div>
+            </form>
           </div>
         </div>
       </div>
