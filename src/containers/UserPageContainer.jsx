@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import UserPage from 'components/UserPage';
 import { getUser, isUserLoading } from 'redux/reducer';
 import { fetchUser } from 'redux/user/actions';
+import Spinner from 'components/Spinner';
 
 class UserPageContainer extends Component {
   static propTypes = {
@@ -28,7 +29,7 @@ class UserPageContainer extends Component {
   render() {
     const { isLoading } = this.props;
 
-    return isLoading ? <div>Loading...</div> : <UserPage user={this.props.user} />;
+    return isLoading ? <Spinner /> : <UserPage user={this.props.user} />;
   }
 }
 

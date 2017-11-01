@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import RepoPage from 'components/RepoPage';
 import { fetchRepo } from 'redux/repo/actions';
 import { getRepo, isRepoLoading } from 'redux/reducer';
+import Spinner from 'components/Spinner';
 
 class RepoPageContainer extends Component {
   static propTypes = {
@@ -28,7 +29,7 @@ class RepoPageContainer extends Component {
   render() {
     const { isLoading } = this.props;
 
-    return isLoading ? <div>Loading...</div> : <RepoPage repo={this.props.repo} />;
+    return isLoading ? <Spinner /> : <RepoPage repo={this.props.repo} />;
   }
 }
 
