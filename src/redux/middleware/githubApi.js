@@ -9,7 +9,15 @@ const apiRequest = (method, endpoing) => {
 
   return fetch(url, {
     Accept: '*/*'
-  }).then(response => response.json());
+  }).then(response => {
+    if (!response.ok) {
+      return response.json().then(resp => {
+        throw new Error(resp.message);
+      });
+    }
+
+    return response.json();
+  });
 };
 
 const verifyApiAction = action => {
@@ -39,5 +47,5 @@ export default () => next => action => {
 
   return apiRequest(method, endpoint)
     .then(payload => next({ type: successType, payload }))
-    .catch(error => next({ type: failureType, error }));
+    .catch(error => next({ type: failureType, error: error.message }));
 };

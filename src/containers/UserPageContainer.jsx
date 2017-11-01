@@ -28,7 +28,7 @@ class UserPageContainer extends Component {
   render() {
     const { isLoading } = this.props;
 
-    return isLoading ? <div>Loading...</div> : <UserPage login={this.props.login} user={this.props.user} />;
+    return isLoading ? <div>Loading...</div> : <UserPage user={this.props.user} />;
   }
 }
 
