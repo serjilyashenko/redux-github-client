@@ -9,8 +9,8 @@ const App = () => (
     <div className="container">
       <Route path="/" component={HeaderContainer} />
       <Switch>
-        <Route exact path="/:user" component={UserPageContainer} />
-        <Route exact path="/:user/:repo" component={RepoPageContainer} />
+        <Route exact path="/:login" component={UserPageContainer} />
+        <Route exact path="/:login/:repo" component={RepoPageContainer} />
         <Route component={() => <h2>404</h2>} />
       </Switch>
     </div>

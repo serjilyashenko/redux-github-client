@@ -1,4 +1,4 @@
-import { USER_REQUEST, USER_SUCCESS, USER_FAILURE } from './actionTypes';
+import { REPO_REQUEST, REPO_SUCCESS, REPO_FAILURE } from './actionTypes';
 
 const initState = {
   loading: false,
@@ -7,11 +7,11 @@ const initState = {
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case REPO_REQUEST:
       return { ...state, loading: true };
-    case USER_SUCCESS:
+    case REPO_SUCCESS:
       return { ...state, loading: false, data: action.payload };
-    case USER_FAILURE:
+    case REPO_FAILURE:
       return { ...state, loading: false, error: action.error };
 
     default:
@@ -19,5 +19,5 @@ export default (state = initState, action) => {
   }
 };
 
-export const getUser = state => state.data;
+export const getRepo = state => state.data;
 export const isLoading = state => state.loading;
