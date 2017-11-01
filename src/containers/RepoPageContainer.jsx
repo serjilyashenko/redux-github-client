@@ -13,7 +13,7 @@ class RepoPageContainer extends Component {
     dispatch: PropTypes.func.isRequired
   };
 
-  componentDidMount() {
+  componentWillMount() {
     const { fullName, dispatch } = this.props;
     dispatch(fetchRepo(fullName));
   }
@@ -37,7 +37,7 @@ RepoPageContainer.propTypes = {
 };
 
 const mapStateIntoProps = (state, { match: { params } }) => ({
-  repo: getRepo(state) || {},
+  repo: getRepo(state) || { owner: {} },
   fullName: `${params.login}/${params.repo}`,
   isLoading: isRepoLoading(state)
 });

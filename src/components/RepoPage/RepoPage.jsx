@@ -1,9 +1,67 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const RepoPage = props => (
-  <div>
-    Repository Page: <pre>{JSON.stringify(props, null, 2)}</pre>
+  <div className="container">
+    <div className="offset-2">
+      <div className="row">
+        <div className="col-12">
+          <h2>{props.repo.name}</h2>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-6">
+          <div>
+            by <b>{props.repo.owner.login}</b>
+          </div>
+          <div>
+            created: <b>{moment(props.repo.created_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+          </div>
+          <div>
+            updated: <b>{moment(props.repo.updated_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+          </div>
+          <div>
+            pushed: <b>{moment(props.repo.pushed_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+          </div>
+        </div>
+        <div className="col-6">
+          <div>
+            stargazers: <b>{props.repo.stargazers_count}</b>
+          </div>
+          <div>
+            watchers: <b>{props.repo.watchers_count}</b>
+          </div>
+          <div>
+            open issues: <b>{props.repo.open_issues_count}</b>
+          </div>
+          <div>
+            forks: <b>{props.repo.forks_count}</b>
+          </div>
+          <div>
+            subscribers: <b>{props.repo.subscribers_count}</b>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 );
+
+RepoPage.propTypes = {
+  repo: PropTypes.shape({
+    name: PropTypes.string,
+    owner: PropTypes.shape({
+      login: PropTypes.string
+    }),
+    created_at: PropTypes.string,
+    updated_at: PropTypes.string,
+    pushed_at: PropTypes.string,
+    stargazers_count: PropTypes.number,
+    watchers_count: PropTypes.number,
+    open_issues_count: PropTypes.number,
+    forks_count: PropTypes.number,
+    subscribers_count: PropTypes.number
+  }).isRequired
+};
 
 export default RepoPage;
