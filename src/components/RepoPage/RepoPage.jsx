@@ -2,44 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-const RepoPage = props => (
+const RepoPage = ({ repo }) => (
   <div className="container">
     <div className="offset-2">
       <div className="row">
         <div className="col-12">
-          <h2>{props.repo.name}</h2>
+          <h2>{repo.name}</h2>
         </div>
       </div>
       <div className="row">
         <div className="col-6">
           <div>
-            by <b>{props.repo.owner.login}</b>
+            by <b>{repo.owner.login}</b>
           </div>
           <div>
-            created: <b>{moment(props.repo.created_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+            created: <b>{moment(repo.created_at).format('DD:MM:YYYY [at] HH:mm')}</b>
           </div>
           <div>
-            updated: <b>{moment(props.repo.updated_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+            updated: <b>{moment(repo.updated_at).format('DD:MM:YYYY [at] HH:mm')}</b>
           </div>
           <div>
-            pushed: <b>{moment(props.repo.pushed_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+            pushed: <b>{moment(repo.pushed_at).format('DD:MM:YYYY [at] HH:mm')}</b>
           </div>
         </div>
         <div className="col-6">
           <div>
-            stargazers: <b>{props.repo.stargazers_count}</b>
+            stargazers: <b>{repo.stargazers_count}</b>
           </div>
           <div>
-            watchers: <b>{props.repo.watchers_count}</b>
+            watchers: <b>{repo.watchers_count}</b>
           </div>
           <div>
-            open issues: <b>{props.repo.open_issues_count}</b>
+            open issues: <b>{repo.open_issues_count}</b>
           </div>
           <div>
-            forks: <b>{props.repo.forks_count}</b>
+            forks: <b>{repo.forks_count}</b>
           </div>
           <div>
-            subscribers: <b>{props.repo.subscribers_count}</b>
+            subscribers: <b>{repo.subscribers_count}</b>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+/* eslint prefer-promise-reject-errors: 0 */
 import fetch from 'isomorphic-fetch';
 
 export const CALL_API = 'CALL_API';
@@ -11,9 +12,8 @@ const apiRequest = (method, endpoing) => {
     Accept: '*/*'
   }).then(response => {
     if (!response.ok) {
-      return response.json().then(resp => {
-        throw new Error(resp.message);
-      });
+      const { status } = response;
+      return response.json().then(({ message }) => Promise.reject({ status, message }));
     }
 
     return response.json();
@@ -47,5 +47,5 @@ export default () => next => action => {
 
   return apiRequest(method, endpoint)
     .then(payload => next({ type: successType, payload }))
-    .catch(error => next({ type: failureType, error: error.message }));
+    .catch(error => next({ type: failureType, error }));
 };

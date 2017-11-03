@@ -46,9 +46,10 @@ class Header extends Component {
     });
   };
 
-  handleOnSubmit = () => {
+  handleOnSubmit = e => {
     const { onSearch } = this.props;
     const url = this.getTargetUrl();
+    e.preventDefault();
     onSearch(url);
   };
 

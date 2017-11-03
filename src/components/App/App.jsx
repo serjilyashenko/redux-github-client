@@ -11,7 +11,6 @@ const App = () => (
       <Switch>
         <Route exact path="/:login" component={UserPageContainer} />
         <Route exact path="/:login/:repo" component={RepoPageContainer} />
-        <Route component={() => <h2>404</h2>} />
       </Switch>
     </div>
   </Router>

@@ -3,13 +3,19 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RepoPage from 'components/RepoPage';
 import { fetchRepo } from 'redux/repo/actions';
-import { getRepo, isRepoLoading } from 'redux/reducer';
-import Spinner from 'components/Spinner';
+import { getRepoState } from 'redux/reducer';
+import PageWrapper from 'components/PageWrapper';
 
 class RepoPageContainer extends Component {
+  static defaultProps = {
+    repo: null,
+    error: null
+  };
+
   static propTypes = {
-    repo: PropTypes.shape({}).isRequired,
+    repo: PropTypes.shape({}),
     isLoading: PropTypes.bool.isRequired,
+    error: PropTypes.bool,
     fullName: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired
   };
@@ -27,20 +33,30 @@ class RepoPageContainer extends Component {
   }
 
   render() {
-    const { isLoading } = this.props;
+    const { isLoading, error, repo } = this.props;
+    const pageContent = repo ? <RepoPage repo={repo} /> : null;
 
-    return isLoading ? <Spinner /> : <RepoPage repo={this.props.repo} />;
+    return (
+      <PageWrapper isLoading={isLoading} error={error}>
+        {pageContent}
+      </PageWrapper>
+    );
   }
 }
 
-RepoPageContainer.propTypes = {
-  repo: PropTypes.shape({}).isRequired
-};
+// class RepoPageContainer extends ClassName {
+//
+// }
 
-const mapStateIntoProps = (state, { match: { params } }) => ({
-  repo: getRepo(state) || { owner: {} },
+const mapStateToProps = (state, { match: { params } }) => ({
   fullName: `${params.login}/${params.repo}`,
-  isLoading: isRepoLoading(state)
+  repo: getRepoState(state).data,
+  isLoading: getRepoState(state).loading,
+  error: getRepoState(state).error
 });
 
-export default connect(mapStateIntoProps)(RepoPageContainer);
+// const mapDispatchToProps = (dispatch, { match: { params } }) => ({
+//   fetchData: () => dispatch(fetchRepo(`${params.login}/${params.repo}`))
+// });
+
+export default connect(mapStateToProps)(RepoPageContainer);
