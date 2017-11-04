@@ -13,7 +13,7 @@ const RepoPage = ({ repo }) => (
       <div className="row">
         <div className="col-6">
           <div>
-            by <b>{repo.owner.login}</b>
+            by <b>{repo.owner ? repo.owner.name : ''}</b>
           </div>
           <div>
             created: <b>{moment(repo.created_at).format('DD:MM:YYYY [at] HH:mm')}</b>
