@@ -43,9 +43,9 @@ export default () => next => action => {
 
   const [requestType, successType, failureType] = action.actionTypes;
   const { method = 'GET', endpoint } = action;
-  next({ type: requestType });
+  next({ ...action, type: requestType });
 
   return apiRequest(method, endpoint)
-    .then(payload => next({ type: successType, payload }))
-    .catch(error => next({ type: failureType, error }));
+    .then(payload => next({ ...action, type: successType, payload }))
+    .catch(error => next({ ...action, type: failureType, error }));
 };

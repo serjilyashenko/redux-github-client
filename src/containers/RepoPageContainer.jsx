@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RepoPage from 'components/RepoPage';
-import { fetchRepo } from 'redux/repo/actions';
-import { getRepoState } from 'redux/reducer';
+import { fetchRepo } from 'redux/state/repo/actions';
+import { getRepoState } from 'redux/state/reducer';
 import PageWrapper from 'components/PageWrapper';
 
 const RepoPageContainer = ({ payload: { data, loading, error }, id, dispatch }) => (

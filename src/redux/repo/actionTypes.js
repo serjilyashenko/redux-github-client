@@ -1,5 +1,0 @@
-export const REPO_REQUEST = 'REPO_REQUEST';
-export const REPO_SUCCESS = 'REPO_SUCCESS';
-export const REPO_FAILURE = 'REPO_FAILURE';
-
-export default { REPO_REQUEST, REPO_SUCCESS, REPO_FAILURE };

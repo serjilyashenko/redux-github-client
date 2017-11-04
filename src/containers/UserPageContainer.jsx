@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import UserPage from 'components/UserPage';
-import { getUserState } from 'redux/reducer';
-import { fetchUser } from 'redux/user/actions';
+import { getUserState } from 'redux/state/reducer';
+import { fetchUser } from 'redux/state/user/actions';
 import PageWrapper from 'components/PageWrapper';
 
 const UserPageContainer = ({ payload: { data, loading, error }, id, dispatch }) => (
