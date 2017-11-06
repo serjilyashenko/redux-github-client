@@ -39,24 +39,33 @@ body {
   }
 }
 
-.popover {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-height: 100px;
-  width: 300px;
-  max-height: 300px;
+.my-popover {
   overflow-y: scroll;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  padding: 20px;
-
-  &_right {
-    left: auto;
-    right: 0;
-  }
+  padding: 0;
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  word-wrap: break-word;
+  max-height: 300px;
+  min-height: 100px;
 
   &__wrapper {
     position: relative;
     display: inline-block;
+  }
+
+  &__area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    width: 300px;
+    display: inline-block;
+
+    &_left {
+      left: auto;
+      right: 0;
+    }
   }
 }
