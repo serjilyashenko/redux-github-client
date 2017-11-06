@@ -9,7 +9,10 @@ const apiRequest = (method, endpoing) => {
   const url = `${API_ROOT}/${endpoing}`;
 
   return fetch(url, {
-    Accept: '*/*'
+    headers: {
+      Authorization: 'token b497d919fef07f2846cd5cb940135011c6aeb77d',
+      Accept: '*/*'
+    }
   }).then(response => {
     if (!response.ok) {
       const { status } = response;

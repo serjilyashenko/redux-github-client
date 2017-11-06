@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FollowersContainer from 'containers/FollowersContainer';
 
 const UserPage = props => (
   <div className="container">
@@ -22,7 +23,10 @@ const UserPage = props => (
           </div>
           <div className="col-6">
             <div>
-              Followers: <b>{props.user.followers}</b>
+              Followers:{' '}
+              <FollowersContainer login={props.user.login || ''}>
+                <b>{props.user.followers}</b>
+              </FollowersContainer>
             </div>
             <div>
               Following: <b>{props.user.following}</b>
@@ -36,6 +40,7 @@ const UserPage = props => (
 
 UserPage.propTypes = {
   user: PropTypes.shape({
+    login: PropTypes.string,
     name: PropTypes.string,
     avatar_url: PropTypes.string,
     public_repos: PropTypes.number,

@@ -29,10 +29,34 @@ body {
 }
 
 .img404 {
-  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
 
   &__wrapper {
     text-align: center;
-    height: 400px;
+    max-height: 400px;
+    max-width: 100%;
+  }
+}
+
+.popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-height: 100px;
+  width: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+
+  &_right {
+    left: auto;
+    right: 0;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: inline-block;
   }
 }
