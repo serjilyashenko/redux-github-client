@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import StargazersContainer from 'containers/StargazersContainer';
 
 const RepoPage = ({ repo }) => (
   <div className="container">
@@ -27,7 +28,10 @@ const RepoPage = ({ repo }) => (
         </div>
         <div className="col-6">
           <div>
-            stargazers: <b>{repo.stargazers_count}</b>
+            stargazers:{' '}
+            <StargazersContainer login={repo.full_name || ''}>
+              <b>{repo.stargazers_count}</b>
+            </StargazersContainer>
           </div>
           <div>
             watchers: <b>{repo.watchers_count}</b>
