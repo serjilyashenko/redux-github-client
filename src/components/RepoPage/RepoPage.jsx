@@ -17,33 +17,33 @@ const RepoPage = ({ repo }) => (
             by <b>{repo.owner ? repo.owner.name : ''}</b>
           </div>
           <div>
-            created: <b>{moment(repo.created_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+            created: <b>{moment(repo.createdAt).format('DD:MM:YYYY [at] HH:mm')}</b>
           </div>
           <div>
-            updated: <b>{moment(repo.updated_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+            updated: <b>{moment(repo.updatedAt).format('DD:MM:YYYY [at] HH:mm')}</b>
           </div>
           <div>
-            pushed: <b>{moment(repo.pushed_at).format('DD:MM:YYYY [at] HH:mm')}</b>
+            pushed: <b>{moment(repo.pushedAt).format('DD:MM:YYYY [at] HH:mm')}</b>
           </div>
         </div>
         <div className="col-6">
           <div>
             stargazers:{' '}
-            <StargazersContainer login={repo.full_name || ''}>
-              <b>{repo.stargazers_count}</b>
+            <StargazersContainer login={repo.fullName || ''}>
+              <b>{repo.stargazersCount}</b>
             </StargazersContainer>
           </div>
           <div>
-            watchers: <b>{repo.watchers_count}</b>
+            watchers: <b>{repo.watchersCount}</b>
           </div>
           <div>
-            open issues: <b>{repo.open_issues_count}</b>
+            open issues: <b>{repo.openIssuesCount}</b>
           </div>
           <div>
-            forks: <b>{repo.forks_count}</b>
+            forks: <b>{repo.forksCount}</b>
           </div>
           <div>
-            subscribers: <b>{repo.subscribers_count}</b>
+            subscribers: <b>{repo.subscribersCount}</b>
           </div>
         </div>
       </div>
@@ -53,18 +53,19 @@ const RepoPage = ({ repo }) => (
 
 RepoPage.propTypes = {
   repo: PropTypes.shape({
+    fullName: PropTypes.string,
     name: PropTypes.string,
     owner: PropTypes.shape({
       login: PropTypes.string
     }),
-    created_at: PropTypes.string,
-    updated_at: PropTypes.string,
-    pushed_at: PropTypes.string,
-    stargazers_count: PropTypes.number,
-    watchers_count: PropTypes.number,
-    open_issues_count: PropTypes.number,
-    forks_count: PropTypes.number,
-    subscribers_count: PropTypes.number
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string,
+    pushedAt: PropTypes.string,
+    stargazersCount: PropTypes.number,
+    watchersCount: PropTypes.number,
+    openIssuesCount: PropTypes.number,
+    forksCount: PropTypes.number,
+    subscribersCount: PropTypes.number
   }).isRequired
 };
 

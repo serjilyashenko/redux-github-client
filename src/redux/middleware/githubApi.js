@@ -1,5 +1,6 @@
 /* eslint prefer-promise-reject-errors: 0 */
 import fetch from 'isomorphic-fetch';
+import { camelizeKeys } from 'humps';
 
 export const CALL_API = 'CALL_API';
 
@@ -20,7 +21,7 @@ const apiRequest = (method, endpoing) => {
     }
 
     return response.json();
-  });
+  }).then(camelizeKeys);
 };
 
 const verifyApiAction = action => {

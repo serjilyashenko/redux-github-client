@@ -57,6 +57,7 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "classnames": "^2.2.5",
+    "humps": "^2.0.1",
     "isomorphic-fetch": "^2.2.1",
     "moment": "^2.19.1",
     "prop-types": "^15.6.0",

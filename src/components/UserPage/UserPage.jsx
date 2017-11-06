@@ -6,7 +6,7 @@ const UserPage = props => (
   <div className="container">
     <div className="row ">
       <div className="col-3">
-        <img className="avatar" src={props.user.avatar_url} alt="avatar" />
+        <img className="avatar" src={props.user.avatarUrl} alt="avatar" />
       </div>
       <div className="col-9">
         <div className="row">
@@ -15,10 +15,10 @@ const UserPage = props => (
         <div className="row">
           <div className="col-6">
             <div>
-              Public repositories: <b>{props.user.public_repos}</b>
+              Public repositories: <b>{props.user.publicRepos}</b>
             </div>
             <div>
-              Public gists: <b>{props.user.public_gists}</b>
+              Public gists: <b>{props.user.publicGists}</b>
             </div>
           </div>
           <div className="col-6">
@@ -42,9 +42,9 @@ UserPage.propTypes = {
   user: PropTypes.shape({
     login: PropTypes.string,
     name: PropTypes.string,
-    avatar_url: PropTypes.string,
-    public_repos: PropTypes.number,
-    public_gists: PropTypes.number,
+    avatarUrl: PropTypes.string,
+    publicRepos: PropTypes.number,
+    publicGists: PropTypes.number,
     followers: PropTypes.number,
     following: PropTypes.number
   }).isRequired
