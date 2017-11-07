@@ -23,8 +23,11 @@ class Popover extends Component {
   };
 
   handleOnMouseOver = () => {
+    const { isVisible } = this.state;
+    if (!isVisible) {
+      this.props.onShow();
+    }
     this.setState({ isVisible: true });
-    this.props.onShow();
   };
 
   handleOnMouseOut = () => {

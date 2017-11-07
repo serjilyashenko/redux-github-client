@@ -14,14 +14,16 @@ const apiRequest = (method, endpoing) => {
       Authorization: 'token b497d919fef07f2846cd5cb940135011c6aeb77d',
       Accept: '*/*'
     }
-  }).then(response => {
-    if (!response.ok) {
-      const { status } = response;
-      return response.json().then(({ message }) => Promise.reject({ status, message }));
-    }
+  })
+    .then(response => {
+      if (!response.ok) {
+        const { status } = response;
+        return response.json().then(({ message }) => Promise.reject({ status, message }));
+      }
 
-    return response.json();
-  }).then(camelizeKeys);
+      return response.json();
+    })
+    .then(camelizeKeys);
 };
 
 const verifyApiAction = action => {

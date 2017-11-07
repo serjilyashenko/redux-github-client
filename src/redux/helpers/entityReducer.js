@@ -3,7 +3,8 @@ import { ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE } from '../constants/ent
 const initState = {
   loading: false,
   data: null,
-  error: null
+  error: null,
+  id: ''
 };
 
 export default (state = initState, action) => {
@@ -11,9 +12,9 @@ export default (state = initState, action) => {
     case ENTITY_REQUEST:
       return { ...state, loading: true, data: null, error: null };
     case ENTITY_SUCCESS:
-      return { ...state, loading: false, data: action.payload, error: null };
+      return { ...state, loading: false, data: action.payload, error: null, id: action.id };
     case ENTITY_FAILURE:
-      return { ...state, loading: false, error: action.error };
+      return { ...state, loading: false, error: action.error, id: action.id };
 
     default:
       return state;

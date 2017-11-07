@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FollowersContainer from 'containers/FollowersContainer';
+import UserReposContainer from 'containers/UserReposContainer';
 
 const UserPage = props => (
   <div className="container">
@@ -15,7 +16,9 @@ const UserPage = props => (
         <div className="row">
           <div className="col-6">
             <div>
-              Public repositories: <b>{props.user.publicRepos}</b>
+              <UserReposContainer login={props.user.login}>
+                Public repositories: <b>{props.user.publicRepos}</b>
+              </UserReposContainer>
             </div>
             <div>
               Public gists: <b>{props.user.publicGists}</b>
@@ -23,9 +26,8 @@ const UserPage = props => (
           </div>
           <div className="col-6">
             <div>
-              Followers:{' '}
               <FollowersContainer login={props.user.login || ''}>
-                <b>{props.user.followers}</b>
+                Followers: <b>{props.user.followers}</b>
               </FollowersContainer>
             </div>
             <div>

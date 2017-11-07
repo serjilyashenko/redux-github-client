@@ -6,15 +6,17 @@ import ErrorPage from 'components/ErrorPage';
 class PageWrapper extends Component {
   static defaultProps = {
     loading: false,
-    error: null
+    error: null,
+    id: '',
+    fetchData: () => {}
   };
 
   static propTypes = {
     loading: PropTypes.bool,
     error: PropTypes.shape({}),
-    id: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
-    fetchData: PropTypes.func.isRequired
+    id: PropTypes.string,
+    fetchData: PropTypes.func
   };
 
   componentWillMount() {

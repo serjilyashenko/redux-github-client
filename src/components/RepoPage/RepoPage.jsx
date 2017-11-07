@@ -2,54 +2,66 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import StargazersContainer from 'containers/StargazersContainer';
+import {Link} from 'react-router-dom';
 
-const RepoPage = ({ repo }) => (
-  <div className="container">
-    <div className="offset-2">
-      <div className="row">
-        <div className="col-12">
-          <h2>{repo.name}</h2>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-6">
-          <div>
-            by <b>{repo.owner ? repo.owner.name : ''}</b>
-          </div>
-          <div>
-            created: <b>{moment(repo.createdAt).format('DD:MM:YYYY [at] HH:mm')}</b>
-          </div>
-          <div>
-            updated: <b>{moment(repo.updatedAt).format('DD:MM:YYYY [at] HH:mm')}</b>
-          </div>
-          <div>
-            pushed: <b>{moment(repo.pushedAt).format('DD:MM:YYYY [at] HH:mm')}</b>
+const RepoPage = ({ repo }) => {
+  const owner = repo.owner ? repo.owner.login : '';
+
+  return (
+    <div className="container">
+      <div className="offset-2">
+        <div className="row">
+          <div className="col-12">
+            <h2>{repo.name}</h2>
           </div>
         </div>
-        <div className="col-6">
-          <div>
-            stargazers:{' '}
-            <StargazersContainer login={repo.fullName || ''}>
-              <b>{repo.stargazersCount}</b>
-            </StargazersContainer>
+        <div className="row">
+          <div className="col-6">
+            <div>
+              by{' '}
+              <Link to={`/${owner}`} href={`/${owner}`}>
+                <b>{owner}</b>
+              </Link>
+            </div>
+            <div>
+              created: <b>{moment(repo.createdAt).format('DD:MM:YYYY [at] HH:mm')}</b>
+            </div>
+            <div>
+              updated: <b>{moment(repo.updatedAt).format('DD:MM:YYYY [at] HH:mm')}</b>
+            </div>
+            <div>
+              pushed: <b>{moment(repo.pushedAt).format('DD:MM:YYYY [at] HH:mm')}</b>
+            </div>
           </div>
-          <div>
-            watchers: <b>{repo.watchersCount}</b>
-          </div>
-          <div>
-            open issues: <b>{repo.openIssuesCount}</b>
-          </div>
-          <div>
-            forks: <b>{repo.forksCount}</b>
-          </div>
-          <div>
-            subscribers: <b>{repo.subscribersCount}</b>
+          <div className="col-6">
+            <div>
+              stargazers:{' '}
+              <StargazersContainer login={repo.fullName || ''}>
+                <b>{repo.stargazersCount}</b>
+              </StargazersContainer>
+            </div>
+            <div>
+              watchers: <b>{repo.watchersCount}</b>
+            </div>
+            <div>
+              open issues: <b>{repo.openIssuesCount}</b>
+            </div>
+            <div>
+              forks: <b>{repo.forksCount}</b>
+            </div>
+            <div>
+              subscribers: <b>{repo.subscribersCount}</b>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
+
+RepoPage.defaultProps = {
+  repo: {}
+};
 
 RepoPage.propTypes = {
   repo: PropTypes.shape({
@@ -66,7 +78,7 @@ RepoPage.propTypes = {
     openIssuesCount: PropTypes.number,
     forksCount: PropTypes.number,
     subscribersCount: PropTypes.number
-  }).isRequired
+  })
 };
 
 export default RepoPage;

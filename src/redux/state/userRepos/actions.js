@@ -1,13 +1,13 @@
 import { CALL_API } from 'redux/middleware/githubApi';
-import { FOLLOWERS } from 'redux/constants/entityTypes';
+import { USER_REPOS } from 'redux/constants/entityTypes';
 import { ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE } from 'redux/constants/entityActionTypes';
 
 export const fetch = login => ({
   type: CALL_API,
   id: login,
-  entityType: FOLLOWERS,
+  entityType: USER_REPOS,
   actionTypes: [ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE],
-  endpoint: `users/${login}/followers`
+  endpoint: `users/${login}/repos`
 });
 
 export default { fetch };

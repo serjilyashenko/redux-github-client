@@ -4,40 +4,45 @@ import Popover from 'components/Popover';
 import PageWrapper from 'components/PageWrapper';
 
 const PopoverWithPageWrapper = ({ payload, id, content, children, fetchData, left }) => {
-  const { loading, error, data } = payload;
+  const { loading, error } = payload;
   const wrappedContent = (
-    <PageWrapper id={id} loading={loading} error={error} fetchData={() => {}}>
+    <PageWrapper loading={loading} error={error}>
       {content}
     </PageWrapper>
   );
 
   const handleOnShow = () => {
-    if (!data) {
-      fetchData();
+    if (!payload.data) {
+      return fetchData();
     }
+    if (id !== payload.id) {
+      return fetchData();
+    }
+    return null;
   };
 
   return (
-    <Popover content={wrappedContent} onShow={handleOnShow} left={left}>
+    <Popover content={wrappedContent} left={left} onShow={handleOnShow}>
       {children}
     </Popover>
   );
 };
 
 PopoverWithPageWrapper.defaultProps = {
-  left: false
+  left: false,
+  id: ''
 };
 
 PopoverWithPageWrapper.propTypes = {
   children: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
   left: PropTypes.bool,
-  payload: {
+  payload: PropTypes.shape({
     data: PropTypes.array,
     loading: PropTypes.bool,
     error: PropTypes.shape()
-  }.isRequired,
-  id: PropTypes.string.isRequired,
+  }).isRequired,
+  id: PropTypes.string,
   fetchData: PropTypes.func.isRequired
 };
 

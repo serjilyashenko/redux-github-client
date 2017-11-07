@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PopoverWithPageWrapper from 'components/PopoverWithPageWrapper';
-import UserShortInfo from 'components/UserShortInfo';
-import { getFollowersState } from 'redux/state/reducer';
-import { fetch } from 'redux/state/followers/actions';
+import RepoShortInfo from 'components/RepoShortInfo';
+import { getUserReposState } from 'redux/state/reducer';
+import { fetch } from 'redux/state/userRepos/actions';
 
 const mapStateToProps = (state, { login }) => {
-  const payload = getFollowersState(state);
-  const followers = payload.data || [];
-  const content = followers.map(user => <UserShortInfo key={user.id} user={user} />);
+  const payload = getUserReposState(state);
+  const userRepos = payload.data || [];
+  const content = userRepos.map(repo => <RepoShortInfo key={repo.id} repo={repo} />);
 
   return {
     content,
