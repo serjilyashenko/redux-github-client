@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PopoverWithPageWrapper from 'components/PopoverWithPageWrapper';
 import UserShortInfo from 'components/UserShortInfo';
-import { getStargazersState } from 'redux/state/reducer';
-import { fetch } from 'redux/state/stargazers/actions';
+import { getRepoSubscribersState } from 'redux/state/reducer';
+import { fetch } from 'redux/state/repoSubscribers/actions';
 
 const mapStateToProps = (state, { fullName }) => {
-  const payload = getStargazersState(state);
-  const stargazers = payload.data || [];
-  const content = stargazers.map(user => <UserShortInfo key={user.id} user={user} />);
+  const payload = getRepoSubscribersState(state);
+  const subscribers = payload.data || [];
+  const content = subscribers.map(user => <UserShortInfo key={user.id} user={user} />);
 
   return {
     content,

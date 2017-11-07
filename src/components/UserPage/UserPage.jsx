@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FollowersContainer from 'containers/FollowersContainer';
+import FollowingsContainer from 'containers/FollowingsContainer';
 import UserReposContainer from 'containers/UserReposContainer';
 
 const UserPage = props => (
   <div className="container">
     <div className="row ">
       <div className="col-3">
-        <img className="avatar" src={props.user.avatarUrl} alt="avatar" />
+        <img className="avatar" src={props.user.avatarUrl} alt="avatar"/>
       </div>
       <div className="col-9">
         <div className="row">
@@ -31,7 +32,9 @@ const UserPage = props => (
               </FollowersContainer>
             </div>
             <div>
-              Following: <b>{props.user.following}</b>
+              <FollowingsContainer login={props.user.login}>
+                Following: <b>{props.user.following}</b>
+              </FollowingsContainer>
             </div>
           </div>
         </div>

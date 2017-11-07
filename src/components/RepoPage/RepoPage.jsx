@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import StargazersContainer from 'containers/StargazersContainer';
+import RepoSubscribersContainer from 'containers/RepoSubscribersContainer';
 import {Link} from 'react-router-dom';
 
-const RepoPage = ({ repo }) => {
+const RepoPage = ({repo}) => {
   const owner = repo.owner ? repo.owner.login : '';
 
   return (
@@ -35,8 +36,8 @@ const RepoPage = ({ repo }) => {
           </div>
           <div className="col-6">
             <div>
-              stargazers:{' '}
-              <StargazersContainer login={repo.fullName || ''}>
+              <StargazersContainer fullName={repo.fullName || ''}>
+                stargazers:{' '}
                 <b>{repo.stargazersCount}</b>
               </StargazersContainer>
             </div>
@@ -50,7 +51,9 @@ const RepoPage = ({ repo }) => {
               forks: <b>{repo.forksCount}</b>
             </div>
             <div>
-              subscribers: <b>{repo.subscribersCount}</b>
+              <RepoSubscribersContainer fullName={repo.fullName || ''}>
+                subscribers: <b>{repo.subscribersCount}</b>
+              </RepoSubscribersContainer>
             </div>
           </div>
         </div>
