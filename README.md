@@ -2,6 +2,16 @@
 
 **Note:** The application is a demonstration instance. 
 
+* Display User Page. Public repos, followers, following are displayed in `PopoverWithPageWrapper` component.
+It allows to load data by itself on mouseOver event. Also loaded data caches in redux store.
+* Display Repo Page. Subscribers and stargazers are displayed in `PopoverWithPageWrapper` component.
+It allows to load data by itself on mouseOver event. Also loaded data caches in redux store.
+* React-Redux application.
+* Reducer logic is reusable with help of `createTypedReducer`.
+* Data fetching realized in `githubApi` middleware.
+* Immutable.js is not used, but can be easily integrated.
+* State is simplified. There is no any normalizations in it.
+
 ## Table of Contents
 
 - [Installation](#instalation)
