@@ -11,7 +11,6 @@ const apiRequest = (method, endpoing) => {
 
   return fetch(url, {
     headers: {
-      Authorization: 'token b497d919fef07f2846cd5cb940135011c6aeb77d',
       Accept: '*/*'
     }
   })
