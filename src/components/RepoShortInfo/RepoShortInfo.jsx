@@ -14,11 +14,11 @@ const RepoShortInfo = ({ repo }) => (
 );
 
 RepoShortInfo.defaultProps = {
-  repo: {}
+  repo: {},
 };
 
 RepoShortInfo.propTypes = {
-  repo: PropTypes.shape({})
+  repo: PropTypes.shape({}),
 };
 
 export default RepoShortInfo;

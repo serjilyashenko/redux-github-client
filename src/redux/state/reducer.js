@@ -1,7 +1,15 @@
 import { combineReducers } from 'redux';
 import createTypedReducer from 'redux/helpers/createTypedReducer';
 import entityReducer from 'redux/helpers/entityReducer';
-import {FOLLOWERS, FOLLOWINGS, REPO, REPO_SUBSCRIBERS, STARGAZERS, USER, USER_REPOS} from '../constants/entityTypes';
+import {
+  FOLLOWERS,
+  FOLLOWINGS,
+  REPO,
+  REPO_SUBSCRIBERS,
+  STARGAZERS,
+  USER,
+  USER_REPOS,
+} from '../constants/entityTypes';
 
 export default combineReducers({
   user: createTypedReducer(entityReducer, USER),
@@ -10,7 +18,7 @@ export default combineReducers({
   stargazers: createTypedReducer(entityReducer, STARGAZERS),
   userRepos: createTypedReducer(entityReducer, USER_REPOS),
   repoSubscribers: createTypedReducer(entityReducer, REPO_SUBSCRIBERS),
-  followings: createTypedReducer(entityReducer, FOLLOWINGS)
+  followings: createTypedReducer(entityReducer, FOLLOWINGS),
 });
 
 export const getUserState = state => state.user;

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import StargazersContainer from 'containers/StargazersContainer';
 import RepoSubscribersContainer from 'containers/RepoSubscribersContainer';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const RepoPage = ({repo}) => {
+const RepoPage = ({ repo }) => {
   const owner = repo.owner ? repo.owner.login : '';
 
   return (
@@ -37,8 +37,7 @@ const RepoPage = ({repo}) => {
           <div className="col-6">
             <div>
               <StargazersContainer fullName={repo.fullName || ''}>
-                stargazers:{' '}
-                <b>{repo.stargazersCount}</b>
+                stargazers: <b>{repo.stargazersCount}</b>
               </StargazersContainer>
             </div>
             <div>
@@ -63,7 +62,7 @@ const RepoPage = ({repo}) => {
 };
 
 RepoPage.defaultProps = {
-  repo: {}
+  repo: {},
 };
 
 RepoPage.propTypes = {
@@ -71,7 +70,7 @@ RepoPage.propTypes = {
     fullName: PropTypes.string,
     name: PropTypes.string,
     owner: PropTypes.shape({
-      login: PropTypes.string
+      login: PropTypes.string,
     }),
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string,
@@ -80,8 +79,8 @@ RepoPage.propTypes = {
     watchersCount: PropTypes.number,
     openIssuesCount: PropTypes.number,
     forksCount: PropTypes.number,
-    subscribersCount: PropTypes.number
-  })
+    subscribersCount: PropTypes.number,
+  }),
 };
 
 export default RepoPage;

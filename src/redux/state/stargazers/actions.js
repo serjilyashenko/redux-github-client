@@ -6,7 +6,7 @@ export const fetch = fullName => ({
   type: CALL_API,
   entityType: STARGAZERS,
   actionTypes: [ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE],
-  endpoint: `repos/${fullName}/stargazers`
+  endpoint: `repos/${fullName}/stargazers`,
 });
 
 export default { fetch };

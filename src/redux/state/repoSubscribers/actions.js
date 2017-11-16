@@ -7,7 +7,7 @@ export const fetch = fullName => ({
   id: fullName,
   entityType: REPO_SUBSCRIBERS,
   actionTypes: [ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE],
-  endpoint: `repos/${fullName}/subscribers`
+  endpoint: `repos/${fullName}/subscribers`,
 });
 
 export default { fetch };

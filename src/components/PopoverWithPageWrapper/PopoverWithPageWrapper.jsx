@@ -30,7 +30,7 @@ const PopoverWithPageWrapper = ({ payload, id, content, children, fetchData, lef
 
 PopoverWithPageWrapper.defaultProps = {
   left: false,
-  id: ''
+  id: '',
 };
 
 PopoverWithPageWrapper.propTypes = {
@@ -40,10 +40,10 @@ PopoverWithPageWrapper.propTypes = {
   payload: PropTypes.shape({
     data: PropTypes.array,
     loading: PropTypes.bool,
-    error: PropTypes.shape()
+    error: PropTypes.shape(),
   }).isRequired,
   id: PropTypes.string,
-  fetchData: PropTypes.func.isRequired
+  fetchData: PropTypes.func.isRequired,
 };
 
 export default PopoverWithPageWrapper;

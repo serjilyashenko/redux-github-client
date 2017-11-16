@@ -16,15 +16,15 @@ UserPageContainer.propTypes = {
   payload: PropTypes.shape({
     data: PropTypes.shape({}),
     loading: PropTypes.bool,
-    error: PropTypes.shape()
+    error: PropTypes.shape(),
   }).isRequired,
   id: PropTypes.string.isRequired,
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, { match: { params } }) => ({
   id: params.login,
-  payload: getUserState(state)
+  payload: getUserState(state),
 });
 
 export default connect(mapStateToProps)(UserPageContainer);

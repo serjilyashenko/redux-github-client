@@ -11,8 +11,8 @@ const apiRequest = (method, endpoing) => {
 
   return fetch(url, {
     headers: {
-      Accept: '*/*'
-    }
+      Accept: '*/*',
+    },
   })
     .then(response => {
       if (!response.ok) {

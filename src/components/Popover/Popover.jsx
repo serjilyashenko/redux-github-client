@@ -7,7 +7,7 @@ class Popover extends Component {
   static defaultProps = {
     left: false,
     onShow: () => {},
-    onHide: () => {}
+    onHide: () => {},
   };
 
   static propTypes = {
@@ -15,11 +15,11 @@ class Popover extends Component {
     content: PropTypes.node.isRequired,
     left: PropTypes.bool,
     onShow: PropTypes.func,
-    onHide: PropTypes.func
+    onHide: PropTypes.func,
   };
 
   state = {
-    isVisible: false
+    isVisible: false,
   };
 
   handleOnMouseOver = () => {
@@ -40,7 +40,7 @@ class Popover extends Component {
     const { isVisible } = this.state;
     const popoverAreaClasses = classnames({
       'my-popover__area': true,
-      'my-popover__area_left': left
+      'my-popover__area_left': left,
     });
 
     if (!isVisible) {
@@ -59,7 +59,11 @@ class Popover extends Component {
     const popover = this.renderPopover();
 
     return (
-      <div className="my-popover__wrapper" onMouseOver={this.handleOnMouseOver} onMouseLeave={this.handleOnMouseOut}>
+      <div
+        className="my-popover__wrapper"
+        onMouseOver={this.handleOnMouseOver}
+        onMouseLeave={this.handleOnMouseOut}
+      >
         {children}
         {popover}
       </div>

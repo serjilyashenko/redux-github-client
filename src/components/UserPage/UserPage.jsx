@@ -8,7 +8,7 @@ const UserPage = props => (
   <div className="container">
     <div className="row ">
       <div className="col-3">
-        <img className="avatar" src={props.user.avatarUrl} alt="avatar"/>
+        <img className="avatar" src={props.user.avatarUrl} alt="avatar" />
       </div>
       <div className="col-9">
         <div className="row">
@@ -51,8 +51,8 @@ UserPage.propTypes = {
     publicRepos: PropTypes.number,
     publicGists: PropTypes.number,
     followers: PropTypes.number,
-    following: PropTypes.number
-  }).isRequired
+    following: PropTypes.number,
+  }).isRequired,
 };
 
 export default UserPage;

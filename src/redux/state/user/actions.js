@@ -6,7 +6,7 @@ export const fetchUser = login => ({
   type: CALL_API,
   entityType: USER,
   endpoint: `users/${login}`,
-  actionTypes: [ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE]
+  actionTypes: [ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE],
 });
 
 export default { fetchUser };

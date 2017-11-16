@@ -7,7 +7,7 @@ export const fetch = login => ({
   id: login,
   entityType: FOLLOWERS,
   actionTypes: [ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE],
-  endpoint: `users/${login}/followers`
+  endpoint: `users/${login}/followers`,
 });
 
 export default { fetch };

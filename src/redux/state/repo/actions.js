@@ -6,7 +6,7 @@ export const fetchRepo = fullName => ({
   type: CALL_API,
   entityType: REPO,
   actionTypes: [ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE],
-  endpoint: `repos/${fullName}`
+  endpoint: `repos/${fullName}`,
 });
 
 export default { fetchRepo };

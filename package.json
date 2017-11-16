@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js --display-error-details",
     "build:serv": "npm run build && npm run static",
-    "format": "prettier --single-quote --print-width=120 --write --tab-width=2 \"./src/**/*.{js,jsx,css,scss}\"",
+    "format": "prettier --write \"./src/**/*.{js,jsx,css,scss}\"",
     "lint": "eslint ./**/*.{js,jsx} --quiet",
     "static": "static-server ./public --port 8080",
     "test": "jest",

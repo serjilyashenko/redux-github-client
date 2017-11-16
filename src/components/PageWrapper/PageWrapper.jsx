@@ -8,7 +8,7 @@ class PageWrapper extends Component {
     loading: false,
     error: null,
     id: '',
-    fetchData: () => {}
+    fetchData: () => {},
   };
 
   static propTypes = {
@@ -16,7 +16,7 @@ class PageWrapper extends Component {
     error: PropTypes.shape({}),
     children: PropTypes.node.isRequired,
     id: PropTypes.string,
-    fetchData: PropTypes.func
+    fetchData: PropTypes.func,
   };
 
   componentWillMount() {

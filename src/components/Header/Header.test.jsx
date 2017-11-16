@@ -9,9 +9,9 @@ const setup = propOverriders => {
   const props = Object.assign(
     {
       searchValue: initSearchValue,
-      onSearch: jest.fn()
+      onSearch: jest.fn(),
     },
-    propOverriders
+    propOverriders,
   );
   const wrapper = mount(<Header {...props} />);
 

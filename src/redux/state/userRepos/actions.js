@@ -7,7 +7,7 @@ export const fetch = login => ({
   id: login,
   entityType: USER_REPOS,
   actionTypes: [ENTITY_REQUEST, ENTITY_SUCCESS, ENTITY_FAILURE],
-  endpoint: `users/${login}/repos`
+  endpoint: `users/${login}/repos`,
 });
 
 export default { fetch };

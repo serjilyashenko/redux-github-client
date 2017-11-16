@@ -15,14 +15,14 @@ const UserShortInfo = ({ user }) => (
 );
 
 UserShortInfo.defaultProps = {
-  user: {}
+  user: {},
 };
 
 UserShortInfo.propTypes = {
   user: PropTypes.shape({
     avatarUrl: PropTypes.string,
-    login: PropTypes.string
-  })
+    login: PropTypes.string,
+  }),
 };
 
 export default UserShortInfo;

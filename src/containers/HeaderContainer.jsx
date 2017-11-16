@@ -10,11 +10,11 @@ const HeaderContainer = props => {
 
 HeaderContainer.propTypes = {
   location: PropTypes.shape({
-    pathname: PropTypes.string
+    pathname: PropTypes.string,
   }).isRequired,
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  }).isRequired
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default HeaderContainer;

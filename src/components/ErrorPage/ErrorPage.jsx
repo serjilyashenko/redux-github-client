@@ -19,12 +19,12 @@ const ErrorPage = ({ status, message }) => {
 
 ErrorPage.defaultProps = {
   status: null,
-  message: 'Something Wrong'
+  message: 'Something Wrong',
 };
 
 ErrorPage.propTypes = {
   status: PropTypes.number,
-  message: PropTypes.string
+  message: PropTypes.string,
 };
 
 export default ErrorPage;

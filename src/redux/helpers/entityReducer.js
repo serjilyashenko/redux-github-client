@@ -4,7 +4,7 @@ const initState = {
   loading: false,
   data: null,
   error: null,
-  id: ''
+  id: '',
 };
 
 export default (state = initState, action) => {

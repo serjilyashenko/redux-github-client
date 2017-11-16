@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 class Header extends Component {
   static propTypes = {
     searchValue: PropTypes.string,
-    onSearch: PropTypes.func.isRequired
+    onSearch: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
-    searchValue: ''
+    searchValue: '',
   };
 
   static normalizeSearchValue(value) {
@@ -42,7 +42,7 @@ class Header extends Component {
 
   handleOnChange = e => {
     this.setState({
-      searchValue: e.target.value
+      searchValue: e.target.value,
     });
   };
 

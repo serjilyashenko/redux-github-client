@@ -14,12 +14,12 @@ const mapStateToProps = (state, { login }) => {
     content,
     payload,
     id: login,
-    left: true
+    left: true,
   };
 };
 
 const mapDispatchToProps = (dispatch, { login }) => ({
-  fetchData: () => dispatch(fetch(login))
+  fetchData: () => dispatch(fetch(login)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PopoverWithPageWrapper);

@@ -16,15 +16,15 @@ RepoPageContainer.propTypes = {
   payload: PropTypes.shape({
     data: PropTypes.shape({}),
     loading: PropTypes.bool,
-    error: PropTypes.shape()
+    error: PropTypes.shape(),
   }).isRequired,
   id: PropTypes.string.isRequired,
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, { match: { params } }) => ({
   id: `${params.login}/${params.repo}`,
-  payload: getRepoState(state)
+  payload: getRepoState(state),
 });
 
 export default connect(mapStateToProps)(RepoPageContainer);
