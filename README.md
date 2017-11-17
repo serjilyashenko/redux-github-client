@@ -18,6 +18,7 @@ It allows to load data by itself on mouseOver event. Also loaded data caches in 
 - [Scripts](#scripts)
 - [Production mode](#production-mode)
 - [Development mode](#development-mode)
+- [Branch with flowJs](#branch-with-flowjs)
 
 ## Installation
 
@@ -80,4 +81,11 @@ npm start
 
 * Check `localhost:8080`.
 
+## Branch with flowJs
 
+Branch `flow` contains try to use flowJs typing.
+
+```bash
+yarn flow-typed install
+yarn flow
+```

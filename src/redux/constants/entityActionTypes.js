@@ -1,3 +1,5 @@
+// @flow
+
 export const ENTITY_REQUEST = 'ENTITY_REQUEST';
 export const ENTITY_SUCCESS = 'ENTITY_SUCCESS';
 export const ENTITY_FAILURE = 'ENTITY_FAILURE';

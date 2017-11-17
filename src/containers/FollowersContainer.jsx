@@ -1,14 +1,21 @@
-import React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import { connect } from 'react-redux';
-import PopoverWithPageWrapper from 'components/PopoverWithPageWrapper';
-import UserShortInfo from 'components/UserShortInfo';
-import { getFollowersState } from 'redux/state/reducer';
-import { fetch } from 'redux/state/followers/actions';
+import PopoverWithPageWrapper from '../components/PopoverWithPageWrapper';
+import UserShortInfo from '../components/UserShortInfo';
+import { getFollowersState } from '../redux/state/reducer';
+import { fetch } from '../redux/state/followers/actions';
+import type { State } from '../types';
+import type { User } from '../types/user';
 
-const mapStateToProps = (state, { login }) => {
-  const payload = getFollowersState(state);
+type OwnProps = {
+  login: string,
+};
+
+const mapStateToProps = (state: State, { login }: OwnProps) => {
+  const payload = getFollowersState(state) || {};
   const followers = payload.data || [];
-  const content = followers.map(user => <UserShortInfo key={user.id} user={user} />);
+  const content = followers.map((user: User): Node => <UserShortInfo key={user.id} user={user} />);
 
   return {
     content,
@@ -18,7 +25,7 @@ const mapStateToProps = (state, { login }) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, { login }) => ({
+const mapDispatchToProps = (dispatch, { login }: OwnProps) => ({
   fetchData: () => dispatch(fetch(login)),
 });
 

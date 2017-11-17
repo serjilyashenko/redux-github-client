@@ -1,6 +1,7 @@
+// @flow
 import { combineReducers } from 'redux';
-import createTypedReducer from 'redux/helpers/createTypedReducer';
-import entityReducer from 'redux/helpers/entityReducer';
+import createTypedReducer from '../helpers/createTypedReducer';
+import entityReducer from '../helpers/entityReducer';
 import {
   FOLLOWERS,
   FOLLOWINGS,
@@ -10,6 +11,7 @@ import {
   USER,
   USER_REPOS,
 } from '../constants/entityTypes';
+import type { State } from '../../types';
 
 export default combineReducers({
   user: createTypedReducer(entityReducer, USER),
@@ -21,16 +23,16 @@ export default combineReducers({
   followings: createTypedReducer(entityReducer, FOLLOWINGS),
 });
 
-export const getUserState = state => state.user;
+export const getUserState = (state: State) => (state ? state.user : null);
 
-export const getRepoState = state => state.repo;
+export const getRepoState = (state: State) => (state ? state.repo : null);
 
-export const getFollowersState = state => state.followers;
+export const getFollowersState = (state: State) => (state ? state.followers : null);
 
-export const getStargazersState = state => state.stargazers;
+export const getStargazersState = (state: State) => (state ? state.stargazers : null);
 
-export const getUserReposState = state => state.userRepos;
+export const getUserReposState = (state: State) => (state ? state.userRepos : null);
 
-export const getRepoSubscribersState = state => state.repoSubscribers;
+export const getRepoSubscribersState = (state: State) => (state ? state.repoSubscribers : null);
 
-export const getFollowingsState = state => state.followings;
+export const getFollowingsState = (state: State) => (state ? state.followings : null);

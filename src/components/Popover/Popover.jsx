@@ -1,9 +1,22 @@
+// @flow
 /* eslint jsx-a11y/mouse-events-have-key-events: 0 */
-import React, { Component } from 'react';
+import React, { Component, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-class Popover extends Component {
+type Props = {
+  left?: bool,
+  content: Node,
+  children: Node,
+  onShow?: () => void,
+  onHide?: () => void,
+};
+
+type State = {
+  isVisible: boolean,
+};
+
+class Popover extends Component<Props, State> {
   static defaultProps = {
     left: false,
     onShow: () => {},
@@ -23,16 +36,18 @@ class Popover extends Component {
   };
 
   handleOnMouseOver = () => {
+    const { onShow = () => {} } = this.props;
     const { isVisible } = this.state;
     if (!isVisible) {
-      this.props.onShow();
+      onShow();
     }
     this.setState({ isVisible: true });
   };
 
   handleOnMouseOut = () => {
+    const { onHide = () => {} } = this.props;
     this.setState({ isVisible: false });
-    this.props.onHide();
+    onHide();
   };
 
   renderPopover() {

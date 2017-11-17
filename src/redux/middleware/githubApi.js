@@ -1,12 +1,18 @@
+// @flow
 /* eslint prefer-promise-reject-errors: 0 */
 import fetch from 'isomorphic-fetch';
 import { camelizeKeys } from 'humps';
+import type { Action } from '../../types';
 
 export const CALL_API = 'CALL_API';
 
 const API_ROOT = 'https://api.github.com';
 
-const apiRequest = (method, endpoing) => {
+const apiRequest = (method: ?string, endpoing: ?string) => {
+  if (!endpoing) {
+    throw new Error('>> Endpoint is not valid');
+  }
+
   const url = `${API_ROOT}/${endpoing}`;
 
   return fetch(url, {
@@ -25,7 +31,7 @@ const apiRequest = (method, endpoing) => {
     .then(camelizeKeys);
 };
 
-const verifyApiAction = action => {
+const verifyApiAction = (action: Action): void => {
   const { endpoint, actionTypes } = action;
 
   if (typeof endpoint !== 'string') {
@@ -39,14 +45,14 @@ const verifyApiAction = action => {
   }
 };
 
-export default () => next => action => {
+export default () => (next: (action: Action) => {}) => (action: Action) => {
   if (action.type !== CALL_API) {
     return next(action);
   }
 
   verifyApiAction(action);
 
-  const [requestType, successType, failureType] = action.actionTypes;
+  const [requestType, successType, failureType] = action.actionTypes || [];
   const { method = 'GET', endpoint } = action;
   next({ ...action, type: requestType });
 

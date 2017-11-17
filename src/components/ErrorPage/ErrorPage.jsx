@@ -1,8 +1,14 @@
+// @flow
 import React from 'react';
 import PropTypes from 'prop-types';
-import Page404 from 'components/Page404';
+import Page404 from '../Page404';
 
-const ErrorPage = ({ status, message }) => {
+type Props = {
+  status?: number,
+  message?: string,
+};
+
+const ErrorPage = ({ status, message }: Props) => {
   if (Number(status) === 404) {
     return <Page404 />;
   }
